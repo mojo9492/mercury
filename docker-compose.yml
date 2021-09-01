@@ -18,5 +18,5 @@ services:
     ports:
       - 3030:3030
     environment: 
-      DB_CONNECTION_STRING: postgres://${POSTGRES_USER}:${APP_DB_ADMIN_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      DB_CONNECTION_STRING: postgres://${PG_USER}:${APP_DB_ADMIN_PASSWORD}@${PGHOST}:${PGPORT}/${PG_DATABASE}
     command: sh -c "npm run start:dev"
