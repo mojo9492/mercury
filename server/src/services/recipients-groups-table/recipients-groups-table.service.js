@@ -11,7 +11,7 @@ module.exports = function () {
 
 	const options = {
 		id: 'rg_id',
-		name: 'recipients-groups-table',
+		name: 'recipients_groups_table',
 		Model,
 		paginate
 	};
