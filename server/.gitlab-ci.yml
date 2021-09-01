@@ -1,0 +1,20 @@
+stages:
+  - testing
+  - build-frontend
+  - build-backend
+
+testing: 
+  stage: testing
+  script:
+    - echo "yeah sure 80% rgr sarnt"
+
+build-backend:
+  image: node:lts-alpine
+  stage: build-backend
+  script: 
+    - echo "some backend build stage stuff here"
+
+build-frontend:
+  stage: build-frontend
+  script: 
+    - echo "some frontend build stage stuff here"    
