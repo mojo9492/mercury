@@ -11,7 +11,7 @@ module.exports = function () {
 
 	const options = {
 		id: 'pc_id',
-		name: 'provider-capabilities',
+		name: 'provider_capabilities',
 		Model,
 		paginate
 	};

@@ -11,7 +11,7 @@ module.exports = function () {
 
 	const options = {
 		id: 'sent_messages_id',
-		name: 'sent-messages',
+		name: 'sent_messages',
 		Model,
 		paginate
 	};

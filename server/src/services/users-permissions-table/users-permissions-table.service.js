@@ -11,7 +11,7 @@ module.exports = function () {
 
 	const options = {
 		id: 'up_id',
-		name: 'users-permissions-table',
+		name: 'users_permissions_table',
 		Model,
 		paginate
 	};
