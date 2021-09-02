@@ -1,57 +1,76 @@
 # server
 
-> 
+## Endpoints
+>base url is http://localhost:3030
 
-## About
+- each endpoint was built with all service methods (CRUD)
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+Translation of Feathers service to HTTP method: 
+Feathers  //  HTTP method
+.find()		GET	
 
-## Getting Started
+.get()		GET	
 
-Getting up and running is as easy as 1, 2, 3.
+.create()	POST	
 
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
+.update()	PUT	
 
-    ```
-    cd path/to/server; npm install
-    ```
+.patch()	PATCH	
 
-3. Start your app
+.remove()	DELETE	
 
-    ```
-    npm start
-    ```
 
-## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
+```/recipients```
+- a get request will return all recipients
+- a get request with a req.param of the recipient_id will return an object that looks like:
 
 ```
-$ npm install -g feathers-cli             # Install Feathers CLI
+{
+    "recipient_id": 2,
+    "first_name": "Gordon",
+    "middle_name": null,
+    "last_name": "Ramsey",
+    "phone_number": "2222222222",
+    "preferred_language": 1,
+    "comments": null,
+    "time_made": "2021-09-01T21:23:14.422Z",
+    "added_by": 1,
+    "comm_method": 2,
+    "language_id": 1,
+    "trigraph_code": "ACE",
+    "digraph_code": "AF",
+    "name": "signal",
+    "alternate_name": null,
+    "pc_id": 2,
+    "rg_id": 3,
+    "group_id": 2
+}
+````
 
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers generate model                 # Generate a new Model
-$ feathers help                           # Show all commands
+Available endpoints : 
+    /groups : 
+    /languages: 
+    /mercury-users:
+    /permissions:
+    /provider-capabilites:
+    /recipients:
+    /recipient-groups:
+    /sent-messages:
+    /users-permissions-table: 
+
+## Adding a custom endpoint
+
+>if you want to create a custom endpoint you need to place an express style method in ```/src/app.js``` under the :
+
+>```app.use('/', feathers.static(app.get('public')));``` line
+
+for example:
 ```
+// Host the public folder
+app.use('/', feathers.static(app.get('public')));
 
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
-
-## Changelog
-
-__0.1.0__
-
-- Initial release
-
-## License
-
-Copyright (c) 2016
-
-Licensed under the [MIT license](LICENSE).
+app.get('/login', (req, res) => {
+    res.status(200).send('it works')
+})
+```
