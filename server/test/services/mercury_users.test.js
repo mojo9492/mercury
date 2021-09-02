@@ -1,8 +1,8 @@
 const app = require('../../src/app');
 
-describe('\'recipients\' service', () => {
+describe('\'mercury_users\' service', () => {
   it('registered the service', () => {
-    const service = app.service('recipients');
+    const service = app.service('mercury_users');
     expect(service).toBeTruthy();
   });
 });

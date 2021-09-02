@@ -7,15 +7,10 @@ module.exports = {
     get: [
         context => {
             const query = context.service.createQuery(context.params);
-
             query
                 .select('*')
-                .where({ 'recipients.recipient_id': context.id })
-                .join('languages', 'recipients.preferred_language', '=', 'languages.language_id')
-                .join('provider_capabilities', 'recipients.comm_method', '=', 'provider_capabilities.pc_id')
-                .join('recipients_groups_table', 'recipients.recipient_id', '=', 'recipients_groups_table.recipient_id')
-
-
+                .where({ 'mercury_users.user_id': context.id })
+                .join('users_permissions_table', 'mercury_users.user_id', '=', 'users_permissions_table.user_id')
             context.params.knex = query;
             return context;
         }
