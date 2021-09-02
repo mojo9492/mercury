@@ -2,6 +2,7 @@ exports.up = function (knex) {
 	return knex.schema.createTable('mercury_users', (table) => {
 		table.increments('user_id');
 		table.string('username').notNullable();
+        table.string('email').notNullable();
 		table.string('password').notNullable();
 	});
 };
