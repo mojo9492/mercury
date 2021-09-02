@@ -7,17 +7,18 @@
 
 Translation of Feathers service to HTTP method: 
 Feathers  //  HTTP method
-.find()		GET	
 
-.get()		GET	
+.find()	----	GET	
 
-.create()	POST	
+.get()	----	GET	
 
-.update()	PUT	
+.create() ----	POST	
 
-.patch()	PATCH	
+.update() ----	PUT	
 
-.remove()	DELETE	
+.patch() ----	PATCH	
+
+.remove() ----	DELETE	
 
 
 
@@ -34,19 +35,112 @@ Feathers  //  HTTP method
     "phone_number": "2222222222",
     "preferred_language": 1,
     "comments": null,
-    "time_made": "2021-09-01T21:23:14.422Z",
+    "time_made": "2021-09-02T21:28:48.394Z",
     "added_by": 1,
     "comm_method": 2,
     "language_id": 1,
     "trigraph_code": "ACE",
     "digraph_code": "AF",
-    "name": "signal",
+    "name": "Group2",
     "alternate_name": null,
     "pc_id": 2,
     "rg_id": 3,
-    "group_id": 2
+    "group_id": 2,
+    "description": "CBSD -- Non-Vetted Interpreters"
 }
-````
+```
+```/mercury_users```
+- a get will get all users
+
+- a get of /mercury_users/:user_id will return users with their permissions and  sent messages in an object like this:
+
+```
+{
+    "user_id": 3,
+    "username": "MForce",
+    "password": "secret",
+    "email": "mark@gmail.com",
+    "up_id": 3,
+    "permission_id": 1,
+    "name": "super_doer"
+}
+```
+
+```/sent-messages```
+- a get request will return all sent messages in the database
+```
+{
+    "total": 9,
+    "limit": 10,
+    "skip": 0,
+    "data": [
+        {
+            "sent_messages_id": 1,
+            "sender_id": 1,
+            "recipient_id": 1,
+            "content": "Rosebud",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 2,
+            "sender_id": 1,
+            "recipient_id": 2,
+            "content": "Rosebud",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 3,
+            "sender_id": 1,
+            "recipient_id": 3,
+            "content": "Rosebud",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 4,
+            "sender_id": 2,
+            "recipient_id": 1,
+            "content": "Goosebumps was an okay show back in the day",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 5,
+            "sender_id": 2,
+            "recipient_id": 2,
+            "content": "Goosebumps was an okay show back in the day",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 6,
+            "sender_id": 2,
+            "recipient_id": 3,
+            "content": "Goosebumps was an okay show back in the day",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 7,
+            "sender_id": 3,
+            "recipient_id": 1,
+            "content": "Did you see that movie Tomorrow War?",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 8,
+            "sender_id": 3,
+            "recipient_id": 2,
+            "content": "Did you see that movie Tomorrow War?",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        },
+        {
+            "sent_messages_id": 9,
+            "sender_id": 3,
+            "recipient_id": 3,
+            "content": "Did you see that movie Tomorrow War?",
+            "time_made": "2021-09-02T21:28:48.403Z"
+        }
+    ]
+}
+```
+
 
 Available endpoints : 
     /groups : 

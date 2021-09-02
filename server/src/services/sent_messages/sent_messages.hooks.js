@@ -7,15 +7,13 @@ module.exports = {
         get: [
             context => {
                 const query = context.service.createQuery(context.params);
-
                 query
                     .select('*')
-                    .where({ 'recipients.recipient_id': context.id })
-                    .join('languages', 'recipients.preferred_language', '=', 'languages.language_id')
-                    .join('provider_capabilities', 'recipients.comm_method', '=', 'provider_capabilities.pc_id')
-                    .join('recipients_groups_table', 'recipients.recipient_id', '=', 'recipients_groups_table.recipient_id')
-                    .join('groups', 'recipients_groups_table.group_id', '=', 'groups.group_id')
-
+                   .where({ 'sent_messages.sender_id': context.id })
+                    .join('mercury_users', 'sent_messages.sender_id', '=', 'mercury_users.user_id')
+                    // .join('mercury_users', 'sent_messages.recipient_id', '=','mercury_users.user_id')
+                //.join('permissions', 'users_permissions_table.permission_id', '=', 'permissions.permission_id')
+                //.join('sent_messages', 'mercury_users.user_id', '=', 'sent_messages.sender_id')
                 context.params.knex = query;
                 return context;
             }

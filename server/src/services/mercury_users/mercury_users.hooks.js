@@ -11,6 +11,8 @@ module.exports = {
                 .select('*')
                 .where({ 'mercury_users.user_id': context.id })
                 .join('users_permissions_table', 'mercury_users.user_id', '=', 'users_permissions_table.user_id')
+                .join('permissions', 'users_permissions_table.permission_id', '=', 'permissions.permission_id')
+                //.join('sent_messages', 'mercury_users.user_id', '=', 'sent_messages.sender_id')
             context.params.knex = query;
             return context;
         }
