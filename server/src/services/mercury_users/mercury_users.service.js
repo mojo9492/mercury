@@ -14,10 +14,10 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/mercury_users', new MercuryUsers(options, app));
+  app.use('/mercury-users', new MercuryUsers(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('mercury_users');
+  const service = app.service('mercury-users');
 
   service.hooks(hooks);
 
