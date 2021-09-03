@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 
-// permissions-model.js - A KnexJS
+// provider_capabilities-model.js - A KnexJS
 // 
 // See http://knexjs.org/
 // for more of what you can do here.
 module.exports = function (app) {
   const db = app.get('knexClient');
-  const tableName = 'permissions';
+  const tableName = 'provider_capabilities';
   db.schema.hasTable(tableName).then(exists => {
     if(!exists) {
       db.schema.createTable(tableName, table => {

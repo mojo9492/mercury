@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 
-// permissions-model.js - A KnexJS
+// sent_messages-model.js - A KnexJS
 // 
 // See http://knexjs.org/
 // for more of what you can do here.
 module.exports = function (app) {
   const db = app.get('knexClient');
-  const tableName = 'permissions';
+  const tableName = 'sent_messages';
   db.schema.hasTable(tableName).then(exists => {
     if(!exists) {
       db.schema.createTable(tableName, table => {

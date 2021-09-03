@@ -1,30 +1,21 @@
 // Initializes the `groups` service on path `/groups`
-const createService = require('feathers-knex');
+const { Groups } = require('./groups.class');
 const createModel = require('../../models/groups.model');
 const hooks = require('./groups.hooks');
-const filters = require('./groups.filters');
 
-module.exports = function () {
-	const app = this;
-	const Model = createModel(app);
-	const paginate = app.get('paginate');
+module.exports = function (app) {
+  const options = {
+    id:'group_id',
+    name:'mercury_users',
+    Model: createModel(app),
+    paginate: app.get('paginate')
+  };
 
-	const options = {
-		id: 'group_id',
-		name: 'groups',
-		Model,
-		paginate
-	};
+  // Initialize our service with any options it requires
+  app.use('/groups', new Groups(options, app));
 
-	// Initialize our service with any options it requires
-	app.use('/groups', createService(options));
+  // Get our initialized service so that we can register hooks
+  const service = app.service('groups');
 
-	// Get our initialized service so that we can register hooks and filters
-	const service = app.service('groups');
-
-	service.hooks(hooks);
-
-	if (service.filter) {
-		service.filter(filters);
-	}
+  service.hooks(hooks);
 };

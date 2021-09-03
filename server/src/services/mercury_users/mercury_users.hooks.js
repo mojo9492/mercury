@@ -9,7 +9,10 @@ module.exports = {
             const query = context.service.createQuery(context.params);
             query
                 .select('*')
-                .where({ 'groups.group_id': context.id })
+                .where({ 'mercury_users.user_id': context.id })
+                .join('users_permissions_table', 'mercury_users.user_id', '=', 'users_permissions_table.user_id')
+                .join('permissions', 'users_permissions_table.permission_id', '=', 'permissions.permission_id')
+                //.join('sent_messages', 'sent_messages.user_id', '=', 'sent_messages.sender_id')
             context.params.knex = query;
             return context;
         }
