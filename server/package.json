@@ -24,14 +24,14 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
-		"test": "jest --watch --collect-coverage --unhandled-rejections=strict --detect-open-handles",
-    	"start:development": "NODE_ENV=local npx knex migrate:latest && NODE_ENV=local npx knex seed:run && nodemon src/",
-		"start": "npx knex migrate:latest && npx knex seed:run && nodemon src/",
-		"mocha": "mocha test/ --recursive --exit",
-		"format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-		"lint": "eslint . --ext .js",
-		"lint:fix": "eslint . --fix --ext .js",
-		"lint:ci": "eslint . --max-warnings 0 --ext .js"
+    "test": "jest --watch --collect-coverage --unhandled-rejections=strict --detect-open-handles",
+    "start:development": "NODE_ENV=local npx knex migrate:latest && NODE_ENV=local npx knex seed:run && nodemon src/",
+    "start": "npm install && npx knex migrate:latest && npx knex seed:run && nodemon src/",
+    "mocha": "mocha test/ --recursive --exit",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js",
+    "lint:ci": "eslint . --max-warnings 0 --ext .js"
   },
   "standard": {
     "env": [
