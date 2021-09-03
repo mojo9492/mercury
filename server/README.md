@@ -141,6 +141,30 @@ Feathers  //  HTTP method
 }
 ```
 
+```/sent-messages/2```
+```
+- a get request will the specific message with sent_messages_id=2:
+        {   
+            "sent_messages_id":2,
+            "sender_id":1,
+            "recipient_id":2,
+            "content":"Rosebud",
+            "time_made":"2021-09-02T21:28:48.403Z"}
+
+```
+```/groups```
+- a get request will return all groups in the database:
+{"total":3,"limit":10,"skip":0,"data":[{"group_id":1,"name":"Group1","description":"CBSD -- Vetted Interpreters","time_made":"2021-09-02T21:28:48.394Z"},{"group_id":2,"name":"Group2","description":"CBSD -- Non-Vetted Interpreters","time_made":"2021-09-02T21:28:48.394Z"},{"group_id":3,"name":"Group3","description":"CBSD -- Linguists","time_made":"2021-09-02T21:28:48.394Z"}]}
+
+```/groups/3```
+- a get request with a group id passed will return that groups from the database:
+```
+{"group_id":2,
+"name":"Group2",
+"description":"CBSD -- Non-Vetted Interpreters",
+"time_made":"2021-09-02T21:28:48.394Z"}
+```
+
 
 Available endpoints : 
     /groups : 

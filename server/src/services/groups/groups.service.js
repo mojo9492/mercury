@@ -5,6 +5,8 @@ const hooks = require('./groups.hooks');
 
 module.exports = function (app) {
   const options = {
+    id:'group_id',
+    name:'mercury_users',
     Model: createModel(app),
     paginate: app.get('paginate')
   };
