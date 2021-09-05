@@ -1,0 +1,10 @@
+{
+  "name": "mercury",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "local:up": "docker compose up --build",
+    "local:down": "docker compose down --rmi all -v"
+  }
+}
