@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_HOST: ${PGHOST}
+      POSTGRES_PORT: ${PGPORT}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${APP_DB_ADMIN_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}
+
+  server: 
+    image: mercury-api
+    build: ./api
+    volumes:
+      - ./api:/src/app
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    environment: 
+      DB_CONNECTION_STRING: postgres://${PG_USER}:${APP_DB_ADMIN_PASSWORD}@${PGHOST}:${PGPORT}/${PG_DATABASE}
+    command: sh -c "npm run test:unit"

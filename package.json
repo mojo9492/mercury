@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "local:up": "docker compose up --build",
-    "local:down": "docker compose down --rmi all -v"
+    "local:down": "docker compose down --rmi all -v",
+    "local:test": "docker compose -f devtest.yml up --build"
   }
 }
